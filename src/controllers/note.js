@@ -1,21 +1,33 @@
 const { v4: uuidv4 } = require("uuid");
-const { readFromDb } = require("../utils/readFromDb");
+const { readFromDb, writeToDb } = require("../utils/interactWithDb");
 
 const getNotes = (req, res) => {
   // read from file
-  const test = readFromDb("db");
+  const db = readFromDb("db");
 
   // return response(json)
-  return res.json(test);
+  return res.json(db);
 };
 
 const deleteNote = (req, res) => {
   // get id of the note from req
+  const { id } = req.params;
+
   // get all notes from file
+  const db = readFromDb("db");
   // remove note from file
+  const filteredDb = db.filter((item) => {
+    item.id !== id;
+  });
+  console.log(filteredDb);
+
   // write to file
-  // send response - {message:success:true}
-  res.send("deleteNote");
+  writeToDb("db", filteredDb);
+  const updatedDb = readFromDb("db");
+  // send response - {message:"success!"}
+  res.json({
+    message: "successfully delated the note!",
+  });
 };
 
 const createNote = (req, res) => {
