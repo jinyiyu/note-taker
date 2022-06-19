@@ -3,6 +3,6 @@ const note = require("./note");
 
 const router = Router();
 
-router.use("/", note);
+router.use("/notes", note);
 
 module.exports = router;

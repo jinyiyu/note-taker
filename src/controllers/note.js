@@ -1,8 +1,12 @@
+const { v4: uuidv4 } = require("uuid");
+const { readFromDb } = require("../utils/readFromDb");
+
 const getNotes = (req, res) => {
   // read from file
-  // return response(json)
+  const test = readFromDb("db");
 
-  res.send();
+  // return response(json)
+  return res.json(test);
 };
 
 const deleteNote = (req, res) => {
