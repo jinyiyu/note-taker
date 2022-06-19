@@ -1,10 +1,8 @@
-const res = require("express/lib/response");
-
 const getNotes = (req, res) => {
   // read from file
   // return response(json)
 
-  res.send("getNotes");
+  res.send();
 };
 
 const deleteNote = (req, res) => {
