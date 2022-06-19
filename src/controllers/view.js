@@ -1,11 +1,13 @@
-const res = require("express/lib/response");
+const path = require("path");
 
 const renderHomePage = (req, res) => {
-  res.send("renderHomePage");
+  res.sendFile(path.join(__dirname, "../../public/index.html"));
 };
 
 const renderNotePage = (req, res) => {
-  res.send("renderNotePage");
+  const filePath = path.join(__dirname, "../../public/notes.html");
+
+  res.sendFile(filePath);
 };
 
 module.exports = {

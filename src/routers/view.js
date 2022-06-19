@@ -3,7 +3,7 @@ const { renderHomePage, renderNotePage } = require("../controllers/view");
 
 const router = Router();
 
-router.get("/", renderHomePage);
-router.get("/note", renderNotePage);
+router.get("/notes", renderNotePage);
+router.get("/*", renderHomePage);
 
 module.exports = router;
