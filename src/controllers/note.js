@@ -9,7 +9,7 @@ const getNotes = (req, res) => {
   return res.json(db);
 };
 
-const deleteNote = (req, res) => {
+function deleteNote(req, res) {
   // get id of the note from req
   const { id } = req.params;
 
@@ -19,16 +19,15 @@ const deleteNote = (req, res) => {
   const filteredDb = db.filter((item) => {
     item.id !== id;
   });
-  console.log(filteredDb);
 
   // write to file
   writeToDb("db", filteredDb);
-  const updatedDb = readFromDb("db");
+
   // send response - {message:"success!"}
   res.json({
     message: "successfully delated the note!",
   });
-};
+}
 
 const createNote = (req, res) => {
   // get payload from req
