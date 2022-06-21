@@ -22,17 +22,14 @@ const deleteNote = (req, res) => {
   try {
     // get id of the note from req
     const { id } = req.params;
-    console.log(id);
 
     // get all notes from file
     const db = readFromDb("db");
-    console.log(db);
 
     // remove note from file
     const filteredDb = db.filter((item) => {
       return item.id !== id;
     });
-    console.log(filteredDb);
 
     // write to file
     writeToDb("db", filteredDb);
@@ -55,7 +52,7 @@ const deleteNote = (req, res) => {
 const createNote = (req, res) => {
   try {
     // get payload from req
-    const payload = req.body;
+    const { title, text } = req.body;
 
     // create uuid
     const id = uuidv4();
@@ -63,7 +60,8 @@ const createNote = (req, res) => {
     // put id and payload in a new notes obj
     const noteObject = {
       id,
-      payload,
+      title,
+      text,
     };
 
     // get all notes from file
@@ -71,9 +69,10 @@ const createNote = (req, res) => {
 
     // insert new note
     db.push(noteObject);
+    console.log(db);
 
     // write to file(db)
-    writeToDb();
+    writeToDb("db", db);
 
     return res.json({
       success: true,
