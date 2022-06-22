@@ -29,7 +29,7 @@
 
 Check out the Github Repository [Here](https://github.com/jinyiyu/note-taker)
 
-Check out the deployed URL [Here](https://jinyiyu.github.io/my-personal-protfolio/)
+Check out the deployed URL [Here](https://jinyi-note-taking-app.herokuapp.com/)
 
 <br>
 
