@@ -1,7 +1,5 @@
 # note-taker
 
-# employee-profile-generator
-
 ## Table of Contents
 
 - [About this Project](#about-this-project)
